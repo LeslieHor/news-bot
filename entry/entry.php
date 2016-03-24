@@ -12,12 +12,9 @@
 		
 		<div class="content">
 			<p>
-				News
-				<ol>
-				<?php
-					include '../test.php';
-				?>
-				</ol>
+			<?php
+				include 'entry_data.php';
+			?>
 			</p>
 		</div>
 	</body>
