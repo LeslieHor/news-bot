@@ -1,0 +1,25 @@
+body {
+	background-color: 000000;
+	font-family: monospace;
+	color: FF6600;
+	max-width: 720px;
+	margin: auto;
+}
+.title {
+	font-size: 200%;
+	font-weight: 800;
+}
+.subtitle {
+	font-weight: 800;
+	font-style: italic;
+}
+a {
+	color:#FF8939;
+	text-decoration: none
+}
+a:hover {
+	color:#FFA364
+}
+a:visited {
+	color:#9B3F00
+}
