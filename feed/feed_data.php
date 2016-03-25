@@ -25,11 +25,12 @@ $counter = 0;
 foreach ($feed->get_items() as $item){
 	$title = $item->get_title();
 	$link = $item->get_link();
-	#$pubdate = $item->get_date();
+	$pubdate = $item->get_date();
 	#$md5 = md5($link);
 	$content = $item->get_content();
 	#$read_status = bool_to_str(get_read_status($md5, $feed_md5));
 	
+	echo date('D, d M y - H:i', strtotime($pubdate));
 	echo '<li><a href="../entry/entry.php?url=' . $query["url"] . '&index=' . $counter . '">' . $title . '</a></li>';
 	#echo '<li><a href="' . $link . '">' . $title . '</a></li>';
 	#echo $content . '<br><br>';
