@@ -9,7 +9,6 @@ include_once('../libs/simplepie/autoloader.php');
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $parts = parse_url($url);
 parse_str($parts['query'], $query);
-#echo $query["url"];
 
 # Parse url into feed
 $feed = new SimplePie();
@@ -22,32 +21,34 @@ echo '<p>';
 echo $feed->get_title();
 echo '</p>';
 
-$counter = 0;
-
-foreach ($feed->get_items() as $item){
-	$counter++;
-	if ($counter == $query['index'])
-	{
-		$title = $item->get_title();
-		$link = $item->get_link();
-		$pubdate = $item->get_date();
-		$content = $item->get_content();
-		
-		echo '<p>';
-		echo 'Published: ' . $pubdate;
-		echo '</p>';
-		
-		echo '<p>';
-		echo '<a href="' . $link . '">' . $title . '</a>';
-		echo '</p>';
-		
-		echo '<p>';
-		echo $content . '<br><br>';
-		echo '</p>';
-		
-		echo '<p>';
-		echo '<a href="../article_extract/article.php?url=' . $link . '">Extract article</a>';
-		echo '</p>';
-	}
+echo '<p>';
+if ($query['index'] > 0)
+{
+	echo '<a href="entry.php?url=' . $query["url"] . '&index=' . ((int)$query['index']-1) . '">Prev Article</a> | ';
 }
+if ($query['index'] < $feed->get_item_quantity() - 1)
+echo '<a href="entry.php?url=' . $query["url"] . '&index=' . ((int)$query['index']+1) . '">Next Article</a>';
+echo '</p>';
+
+$item = $feed->get_item($query['index']);
+$title = $item->get_title();
+$link = $item->get_link();
+$pubdate = $item->get_date();
+$content = $item->get_content();
+
+echo '<p>';
+echo 'Published: ' . $pubdate;
+echo '</p>';
+
+echo '<p>';
+echo '<a href="' . $link . '">' . $title . '</a>';
+echo '</p>';
+
+echo '<p>';
+echo $content . '<br><br>';
+echo '</p>';
+
+echo '<p>';
+echo '<a href="../article_extract/article.php?url=' . $link . '">Extract article</a>';
+echo '</p>';
 ?>

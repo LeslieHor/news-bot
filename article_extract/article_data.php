@@ -12,6 +12,7 @@ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $parts = parse_url($url);
 parse_str($parts['query'], $query);
 
+
 $html = file_get_contents($query['url']);
 
 if (function_exists('tidy_parse_string')) {
@@ -26,14 +27,16 @@ try{
 	$result = $readability->init();
 	
 	if ($result) {
-			$content = $readability->getContent()->innerHTML;
-			// if we've got Tidy, let's clean it up for output
-			if (function_exists('tidy_parse_string')) {
-				$tidy = tidy_parse_string($content, array('indent'=>true, 'show-body-only' => true), 'UTF8');
-				$tidy->cleanRepair();
-				$content = $tidy->value;
-			}
-			echo $content;
+		$title = $readability->getTitle()->innerHTML;
+		$content = $readability->getContent()->innerHTML;
+		// if we've got Tidy, let's clean it up for output
+		if (function_exists('tidy_parse_string')) {
+			$tidy = tidy_parse_string($content, array('indent'=>true, 'show-body-only' => true), 'UTF8');
+			$tidy->cleanRepair();
+			$content = $tidy->value;
+		}
+		echo '<p>' . $title . '</p>';
+		echo $content;
 	} else {
 		echo 'Looks like we couldn\'t find the content. :(';
 	}

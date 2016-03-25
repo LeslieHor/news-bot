@@ -23,7 +23,6 @@ echo "<ol>";
 $counter = 0;
 
 foreach ($feed->get_items() as $item){
-	$counter++;
 	$title = $item->get_title();
 	$link = $item->get_link();
 	#$pubdate = $item->get_date();
@@ -34,6 +33,8 @@ foreach ($feed->get_items() as $item){
 	echo '<li><a href="../entry/entry.php?url=' . $query["url"] . '&index=' . $counter . '">' . $title . '</a></li>';
 	#echo '<li><a href="' . $link . '">' . $title . '</a></li>';
 	#echo $content . '<br><br>';
+	
+	$counter++;
 }
 
 echo "</ol>";

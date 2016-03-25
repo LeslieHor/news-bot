@@ -23,3 +23,15 @@ a:hover {
 a:visited {
 	color:#9B3F00
 }
+img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+	height: auto;
+	width: auto;
+}
+.article {
+	font-family: Tahoma, Geneva, sans-serif;
+}

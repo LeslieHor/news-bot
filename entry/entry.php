@@ -10,7 +10,7 @@
 
 		<div class="subtitle">News Bot (unfinished pre-alpha)</div>
 		
-		<div class="content">
+		<div class="article">
 			<p>
 			<?php
 				include 'entry_data.php';

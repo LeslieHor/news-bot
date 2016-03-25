@@ -11,12 +11,9 @@
 		<div class="subtitle">News Bot (unfinished pre-alpha)</div>
 		
 		<div class="content">
-			<p>
-				Categories
-				<ol>
-					<li><a href="categories/news.php">News</a></li>
-				</ol>	
-			</p>
+			<?php
+				include 'init.php';
+			?>
 		</div>
 	</body>
 </html>
