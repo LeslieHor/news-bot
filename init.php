@@ -6,12 +6,13 @@ foreach($files as $file) {
 	$feeds = load_json_data($file);
 	$title = basename($file, ".json");
 	
-	echo $title;
+	echo '<p>' . ucfirst($title);
+	
 	echo '<ol>';
 	foreach ($feeds as $feed){
 		echo '<li><a href="feed/feed.php?url=' . $feed['link'] . '">' . $feed['title'] . '</a></li>';
 	}
-	echo '</ol>';
+	echo '</ol></p>';
 }
 
 ?>
