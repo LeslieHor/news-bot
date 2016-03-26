@@ -35,3 +35,12 @@ img {
 .article {
 	font-family: Verdana, sans-serif;
 }
+.feed_title {
+	font-size: 130%;
+}
+.publish_date{
+	font-size: 60%;
+}
+.article_title{
+	font-size: 150%;
+}

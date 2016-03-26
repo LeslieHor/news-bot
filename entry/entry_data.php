@@ -17,17 +17,16 @@ $feed->set_feed_url($query["url"]);
 $feed->init();
 $feed->handle_content_type();
 
-echo '<p>';
-echo $feed->get_title();
-echo '</p>';
-
-echo '<p>';
+echo '<div class="nav_bar">';
+echo '<a href="../feed/feed.php?url=' . $query['url'] . '">Back</a> | ';
 if ($query['index'] > 0)
 {
 	echo '<a href="entry.php?url=' . $query["url"] . '&index=' . ((int)$query['index']-1) . '">Prev Article</a> | ';
 }
 if ($query['index'] < $feed->get_item_quantity() - 1)
-echo '<a href="entry.php?url=' . $query["url"] . '&index=' . ((int)$query['index']+1) . '">Next Article</a>';
+{
+	echo '<a href="entry.php?url=' . $query["url"] . '&index=' . ((int)$query['index']+1) . '">Next Article</a>';
+}
 echo '</p>';
 
 $item = $feed->get_item($query['index']);
@@ -36,17 +35,21 @@ $link = $item->get_link();
 $pubdate = $item->get_date();
 $content = $item->get_content();
 
-echo '<p>';
-echo 'Published: ' . $pubdate;
-echo '</p>';
+echo '<div class="feed_title">';
+echo '<a href="' . $feed->get_link() . '">' . $feed->get_title() . '</a>';
+echo '</div>';
 
-echo '<p>';
+echo '<div class="article_title">';
 echo '<a href="' . $link . '">' . $title . '</a>';
-echo '</p>';
+echo '</div>';
 
-echo '<p>';
+echo '<div class="publish_date">';
+echo 'Published: ' . $pubdate;
+echo '</div>';
+
+echo '<div class="main_article_content">';
 echo $content . '<br><br>';
-echo '</p>';
+echo '</div>';
 
 echo '<p>';
 echo '<a href="../article_extract/article.php?url=' . $link . '">Extract article</a>';
