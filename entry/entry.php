@@ -6,9 +6,7 @@
 	</head>
 
 	<body>
-		<div class="title"><a href="http://rdlh.me">RDLH</a></div>
-
-		<div class="subtitle">News Bot (unfinished pre-alpha)</div>
+		<?php include '../header.php' ?>
 		
 		<div class="article">
 			<p>
