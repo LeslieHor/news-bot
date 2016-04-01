@@ -14,15 +14,19 @@ body {
 	font-style: italic;
 }
 a {
-	color:#FF8939;
+	color: #9B3F00;
 	text-decoration: none
 }
-a:hover {
-	color:#FFA364
+/*
+a:visited 
+{
+	color: #9B3F00;
 }
-a:visited {
-	color:#9B3F00
+a:hover 
+{
+	color: #FFA364;
 }
+*/
 img {
     padding: 0;
     display: block;
@@ -43,4 +47,7 @@ img {
 }
 .article_title{
 	font-size: 150%;
+}
+.unread a{
+	color: #FF8939;
 }
